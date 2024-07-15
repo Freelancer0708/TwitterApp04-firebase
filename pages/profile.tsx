@@ -104,7 +104,7 @@ const ProfilePage = () => {
                 onChange={(e) => setUsername(e.target.value)}
                 required
               />
-              <button type="submit">Update</button>
+              <button type="submit">更新</button>
             </div>
           </div>
         </form>
@@ -127,7 +127,7 @@ const ProfilePage = () => {
                 onChange={(e) => setCurrentPassword(e.target.value)}
                 required
               />
-              <button type="submit">Update</button>
+              <button type="submit">更新</button>
             </div>
           </div>
         </form>
@@ -151,7 +151,7 @@ const ProfilePage = () => {
                 onChange={(e) => setCurrentPassword(e.target.value)}
                 required
               />
-              <button type="submit">Update</button>
+              <button type="submit">更新</button>
             </div>
           </div>
         </form>
