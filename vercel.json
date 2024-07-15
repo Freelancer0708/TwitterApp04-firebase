@@ -2,7 +2,10 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/api/auth?next=/$1"
+        "dest": "/$1",
+        "headers": {
+          "Authorization": "Basic dGVzdDp0ZXN0"
+        }
       }
     ]
   }
