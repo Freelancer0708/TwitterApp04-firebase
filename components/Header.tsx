@@ -1,10 +1,25 @@
+import { useEffect, useState } from 'react';
 import { useAuthContext } from '../contexts/AuthContext';
 import Link from 'next/link';
 import { getAuth } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebase';
 
 const Header = () => {
   const { user } = useAuthContext();
   const auth = getAuth();
+  const [username, setUsername] = useState<string | null>(null);
+  useEffect(() => {
+    const fetchUsername = async () => {
+      if (user) {
+        const userDoc = await getDoc(doc(db, 'users', user.uid));
+        if (userDoc.exists()) {
+          setUsername(userDoc.data()?.username || null);
+        }
+      }
+    };
+    fetchUsername();
+  }, [user]);
 
   return (
     <header>
@@ -16,7 +31,7 @@ const Header = () => {
               <li><Link href="/tweet">Tweet</Link></li>
               <li><Link href="/profile">Profile</Link></li>
               <li className='header-right'>
-                <div className=''>{user.email}</div>
+                <div className=''>{username ? username : user.email}</div>
                 <button onClick={() => auth.signOut()}>Logout</button>
               </li>
             </>
