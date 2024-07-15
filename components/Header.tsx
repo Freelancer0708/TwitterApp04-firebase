@@ -13,10 +13,12 @@ const Header = () => {
           <li><Link href="/">Home</Link></li>
           {user ? (
             <>
-              <li>{user.email}</li>
               <li><Link href="/tweet">Tweet</Link></li>
               <li><Link href="/profile">Profile</Link></li>
-              <li><button onClick={() => auth.signOut()}>Logout</button></li>
+              <li className='header-right'>
+                <div className=''>{user.email}</div>
+                <button onClick={() => auth.signOut()}>Logout</button>
+              </li>
             </>
           ) : (
             <>

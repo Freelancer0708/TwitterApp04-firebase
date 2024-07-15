@@ -85,19 +85,20 @@ const TweetPage = () => {
 
   return (
     <div>
-      <h1>Post a Tweet</h1>
-      <form onSubmit={handleSubmit}>
+      <h1>Tweet</h1>
+      <form onSubmit={handleSubmit} className='tweets-form'>
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="What's on your mind?"
           required
         />
-        <button type="submit">Tweet</button>
+        <button type="submit">投稿する</button>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
       <div>
-        <h2>Tweets</h2>
+        <h2>タイムライン</h2>
+        <section className='tweets'>
         {tweets.map((tweet) => (
           <div key={tweet.id} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px 0' }}>
             <p>{tweet.content}</p>
@@ -106,6 +107,7 @@ const TweetPage = () => {
             </small>
           </div>
         ))}
+        </section>
       </div>
     </div>
   );

@@ -88,65 +88,74 @@ const ProfilePage = () => {
   }
 
   return (
-    <div>
+    <div className='profile'>
       <h1>Profile</h1>
       {message && <p style={{ color: 'green' }}>{message}</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleUsernameChange}>
-        <div>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-          <button type="submit">Update Username</button>
-        </div>
-      </form>
-      <form onSubmit={handleEmailChange}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            id="current-password-email"
-            placeholder="Current Password"
-            value={currentPassword}
-            onChange={(e) => setCurrentPassword(e.target.value)}
-            required
-          />
-          <button type="submit">Update Email</button>
-        </div>
-      </form>
-      <form onSubmit={handlePasswordChange}>
-        <div>
-          <label htmlFor="password">New Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            id="current-password-password"
-            placeholder="Current Password"
-            value={currentPassword}
-            onChange={(e) => setCurrentPassword(e.target.value)}
-            required
-          />
-          <button type="submit">Update Password</button>
-        </div>
-      </form>
+      <section className='profile-inner'>
+        <form onSubmit={handleUsernameChange} className='profile-username'>
+          <div>
+            <label htmlFor="username">ユーザー名</label>
+            <div className='profile-input'>
+              <input
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              <button type="submit">Update</button>
+            </div>
+          </div>
+        </form>
+        <form onSubmit={handleEmailChange} className='profile-email'>
+          <div>
+            <label htmlFor="email">メールアドレス</label>
+            <div className='profile-input'>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <input
+                type="password"
+                id="current-password-email"
+                placeholder="現在のパスワード"
+                value={currentPassword}
+                onChange={(e) => setCurrentPassword(e.target.value)}
+                required
+              />
+              <button type="submit">Update</button>
+            </div>
+          </div>
+        </form>
+        <form onSubmit={handlePasswordChange} className='profile-password'>
+          <div>
+            <label htmlFor="password">パスワード</label>
+            <div className='profile-input'>
+              <input
+                type="password"
+                id="password"
+                placeholder="新しいパスワード"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <input
+                type="password"
+                id="current-password-password"
+                placeholder="現在のパスワード"
+                value={currentPassword}
+                onChange={(e) => setCurrentPassword(e.target.value)}
+                required
+              />
+              <button type="submit">Update</button>
+            </div>
+          </div>
+        </form>
+      </section>
     </div>
   );
 };
