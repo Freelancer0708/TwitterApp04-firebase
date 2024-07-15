@@ -2,11 +2,7 @@
     "routes": [
       {
         "src": "/(.*)",
-        "headers": {
-          "www-authenticate": "Basic realm=\"Protected Area\""
-        },
-        "dest": "/$1",
-        "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
+        "dest": "/api/auth?next=/$1"
       }
     ]
   }
