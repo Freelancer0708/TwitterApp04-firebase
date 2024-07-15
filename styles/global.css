@@ -257,6 +257,9 @@ h2 {
     small {
         font-size: 12px;
     }
+    .tweets-form {
+        margin-bottom: 10px;
+    }
     .tweets-form textarea {
         font-size: 16px;
         min-height: 70px;
@@ -267,6 +270,9 @@ h2 {
         padding: 8px 0;
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
+    }
+    .tweets {
+        max-height: 320px;
     }
 
     .profile-username > div, .profile-email > div, .profile-password > div {
