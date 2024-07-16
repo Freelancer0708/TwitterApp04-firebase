@@ -5,6 +5,7 @@ import { getAuth, updateEmail, updatePassword, reauthenticateWithCredential, Ema
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useAuthContext } from '../contexts/AuthContext';
+import withAuth from '../hoc/withAuth';
 
 const ProfilePage = () => {
   const [username, setUsername] = useState('');
@@ -160,4 +161,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default withAuth(ProfilePage);
