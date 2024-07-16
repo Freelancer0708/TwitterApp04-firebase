@@ -5,6 +5,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { collection, addDoc, query, orderBy, onSnapshot, Timestamp, QuerySnapshot, DocumentData, getDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useAuthContext } from '../contexts/AuthContext';
+import withAuth from '../hoc/withAuth';
 
 type Tweet = {
   id: string;
@@ -113,4 +114,4 @@ const TweetPage = () => {
   );
 };
 
-export default TweetPage;
+export default withAuth(TweetPage);
